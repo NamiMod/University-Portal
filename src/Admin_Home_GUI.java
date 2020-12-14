@@ -57,7 +57,7 @@ public class Admin_Home_GUI {
 
         // admin avatar
         image = new JLabel();
-        image.setIcon(new ImageIcon("loginpic.png"));
+        image.setIcon(new ImageIcon("adminpic.png"));
         image.setSize(300,300);
         image.setLocation(20,5);
         Border button = new BevelBorder(BevelBorder.LOWERED, text,text);
@@ -72,7 +72,7 @@ public class Admin_Home_GUI {
         info.setFont(new Font("Arial", Font.BOLD,20));
         info.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 0, Color.white));
         info.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.white));
-        info.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, outBlue));
+        info.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
 
         AccessLevel = new JLabel("Access Level : Admin");
         AccessLevel.setLocation(380 , 50);
@@ -94,18 +94,34 @@ public class Admin_Home_GUI {
 
 
         // adding buttons for admin
-        change = new JButton("تغییر نام کاربری یا رمز عبور");
+        change = new JButton("تغییر مشخصات");
         change.setLocation(20,340);
-        change.setSize(200,20);
+        change.setSize(350,20);
+        change.setForeground(text);
+        change.setFont(new Font("Arial", Font.PLAIN, 20));
+        change.setBounds(change.getX(),change.getY(), 180, 30);
+        change.setBorder(new RoundedBorder(10));
         food = new JButton("ثبت برنامه غذا");
         food.setLocation(250,340);
         food.setSize(200,20);
+        food.setForeground(text);
+        food.setFont(new Font("Arial", Font.PLAIN, 20));
+        food.setBounds(food.getX(),food.getY(), 180, 30);
+        food.setBorder(new RoundedBorder(10));
         addStudent = new JButton("اضافه کردن دانشجو");
         addStudent.setLocation(480,340);
         addStudent.setSize(200,20);
+        addStudent.setForeground(text);
+        addStudent.setFont(new Font("Arial", Font.PLAIN, 20));
+        addStudent.setBounds(addStudent.getX(),addStudent.getY(), 180, 30);
+        addStudent.setBorder(new RoundedBorder(10));
         addProfessor = new JButton("اضافه کردن استاد");
         addProfessor.setLocation(20,390);
         addProfessor.setSize(200,20);
+        addProfessor.setForeground(text);
+        addProfessor.setFont(new Font("Arial", Font.PLAIN, 20));
+        addProfessor.setBounds(addProfessor.getX(),addProfessor.getY(), 180, 30);
+        addProfessor.setBorder(new RoundedBorder(10));
 
         Home.add(change);
         Home.add(food);
