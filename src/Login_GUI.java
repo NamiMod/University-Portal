@@ -1,3 +1,12 @@
+/**
+ * --Login Class--
+ * this is UI For login
+ * University Portal
+ * @since 2020
+ * @author Seyed Nami Modarressi
+ * @version 1.0
+ */
+
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
@@ -17,6 +26,9 @@ public class Login_GUI {
     Color lightBlue_2 = new Color(208,237,255);
     Color background = new Color(237,237,237);
 
+    /**
+     * create login frame
+     */
     public Login_GUI() {
         loginFrame = new JFrame("ورود");
         loginFrame.setSize(700, 400);
@@ -29,6 +41,9 @@ public class Login_GUI {
         showLogin();
     }
 
+    /**
+     * add login elements like password field , username field , ...
+     */
     public void login_element() {
         Border textBlue = new BevelBorder(BevelBorder.LOWERED, outBlue,background);
         Border button = new BevelBorder(BevelBorder.LOWERED, text,text);
@@ -71,6 +86,9 @@ public class Login_GUI {
 
     }
 
+    /**
+     * show login frame
+     */
     public void showLogin() {
         loginFrame.setVisible(true);
     }
