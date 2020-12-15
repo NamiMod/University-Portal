@@ -1,6 +1,6 @@
 /**
- * --Add student to system--
- * in this class we create window to add student to system
+ * --Add professor to system--
+ * in this class we create window to add professor to system
  * @since 2020
  * @version 1.0
  * @author Seyed Nami Modarressi
@@ -11,12 +11,11 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class Add_Student {
+public class Add_Professor {
     private JFrame addFrame;
     private JTextField username;
     private JTextField password;
     private JButton add;
-    private JCheckBox kind;
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -25,24 +24,24 @@ public class Add_Student {
     Color background = new Color(237, 237, 237);
 
     /**
-     * create add student frame
+     * create add professor frame
      */
-    public Add_Student() {
-        addFrame = new JFrame("اضافه کردن دانشجو به سیستم");
+    public Add_Professor() {
+        addFrame = new JFrame("اضافه کردن استاد به سیستم");
         addFrame.setSize(400, 300);
         addFrame.setLocationRelativeTo(null);
         addFrame.setLayout(null);
         addFrame.setResizable(false);
         addFrame.getContentPane().setBackground(Color.white);
         addFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        ADDStudent_element();
+        ADDProfessor_element();
         showADDStudent();
     }
 
     /**
-     * add student username and password elements
+     * add professor username and password elements
      */
-    public void ADDStudent_element() {
+    public void ADDProfessor_element() {
         Border textBlue = new BevelBorder(BevelBorder.LOWERED, outBlue,background);
         username = new JTextField("Username");
         username.setLocation(75,20);
@@ -66,12 +65,6 @@ public class Add_Student {
         password.setBackground(Color.white);
         addFrame.add(password);
 
-
-        kind = new JCheckBox("ممتاز ورودی");
-        kind.setLocation(70,130);
-        kind.setSize(100,50);
-        addFrame.add(kind);
-
         add = new JButton("اضافه کردن");
         add.setLocation(110,200);
         add.setSize(200,70);
@@ -83,7 +76,7 @@ public class Add_Student {
     }
 
     /**
-     * show add student window
+     * show add professor window
      */
     public void showADDStudent() {
         addFrame.setVisible(true);

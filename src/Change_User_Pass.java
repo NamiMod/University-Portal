@@ -41,7 +41,7 @@ public class Change_User_Pass {
     }
 
     /**
-     * add change username or password
+     * add change username or password elements
      */
     public void change_element() {
         Border textBlue = new BevelBorder(BevelBorder.LOWERED, outBlue,background);
