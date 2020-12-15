@@ -1,3 +1,11 @@
+/**
+ * --Admin Home GUI--
+ * in this class we create and show home page ui for admin
+ * @author Seyed Nami Modarressi
+ * @since 2020
+ * @version 1.0
+ */
+
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
@@ -11,13 +19,14 @@ public class Admin_Home_GUI {
     private JLabel image;
     private JLabel AccessLevel;
     private JLabel username;
-    private JLabel lastLogin;
     private JLabel loginDate;
     private JButton change;
     private JButton food;
     private JButton addStudent;
     private JButton addProfessor;
-    private JButton list;
+    private JButton studentsList;
+    private JButton professorsList;
+    private JButton classesList;
 
     Color outBlue = new Color(0,128,255);
     Color text = new Color(43,62,100);
@@ -25,11 +34,14 @@ public class Admin_Home_GUI {
     Color lightBlue_2 = new Color(208,237,255);
     Color background = new Color(237,237,237);
 
+    /**
+     * create admin home page
+     */
     public Admin_Home_GUI() {
 
         Home = new JFrame();
         Home = new JFrame("پنل مدیریت ادمین");
-        Home.setSize(700, 500);
+        Home.setSize(700, 550);
         Home.setLocationRelativeTo(null);
         Home.setLayout(null);
         Home.setResizable(false);
@@ -41,18 +53,26 @@ public class Admin_Home_GUI {
 
     }
 
+    /**
+     * add menu to admin home page
+     */
     public void addMenu() {
         menu = new JMenuBar();
-        menu_inside = new JMenu("...");
-        JMenuItem Help = new JMenuItem("Help");
+        menu_inside = new JMenu("Help");
+        JMenuItem Help = new JMenuItem("How to use");
         JMenuItem Report = new JMenuItem("Report Bug");
+        JMenuItem About = new JMenuItem("About software");
         menu_inside.add(Help);
         menu_inside.add(Report);
+        menu_inside.add(About);
         menu.add(menu_inside);
-        menu.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.white));
+        menu.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
         Home.setJMenuBar(menu);
     }
 
+    /**
+     * add elements to admin homepage
+     */
     public void adminHomeElements() {
 
         // admin avatar
@@ -66,7 +86,7 @@ public class Admin_Home_GUI {
 
         // adding information
         JLabel info = new JLabel(" مشخصات کاربر");
-        info.setLocation(380,0);
+        info.setLocation(400,0);
         info.setSize(180,50);
         info.setForeground(text);
         info.setFont(new Font("Arial", Font.BOLD,20));
@@ -75,20 +95,16 @@ public class Admin_Home_GUI {
         info.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
 
         AccessLevel = new JLabel("Access Level : Admin");
-        AccessLevel.setLocation(380 , 50);
+        AccessLevel.setLocation(400 , 50);
         AccessLevel.setSize(200,50);
         username = new JLabel("User : admin ");
-        username.setLocation(380,80);
+        username.setLocation(400,80);
         username.setSize(200,50);
-        lastLogin = new JLabel("Last Login : DD / MM / YYYY");
-        lastLogin.setLocation(380,110);
-        lastLogin.setSize(200,50);
         loginDate = new JLabel("Login : HH : MM : SS");
-        loginDate.setLocation(380,140);
+        loginDate.setLocation(400,110);
         loginDate.setSize(200,50);
         Home.add(AccessLevel);
         Home.add(username);
-        Home.add(lastLogin);
         Home.add(loginDate);
         Home.add(info);
 
@@ -101,6 +117,7 @@ public class Admin_Home_GUI {
         change.setFont(new Font("Arial", Font.PLAIN, 20));
         change.setBounds(change.getX(),change.getY(), 180, 30);
         change.setBorder(new RoundedBorder(10));
+        //--
         food = new JButton("ثبت برنامه غذا");
         food.setLocation(250,340);
         food.setSize(200,20);
@@ -108,6 +125,7 @@ public class Admin_Home_GUI {
         food.setFont(new Font("Arial", Font.PLAIN, 20));
         food.setBounds(food.getX(),food.getY(), 180, 30);
         food.setBorder(new RoundedBorder(10));
+        //--
         addStudent = new JButton("اضافه کردن دانشجو");
         addStudent.setLocation(480,340);
         addStudent.setSize(200,20);
@@ -115,6 +133,7 @@ public class Admin_Home_GUI {
         addStudent.setFont(new Font("Arial", Font.PLAIN, 20));
         addStudent.setBounds(addStudent.getX(),addStudent.getY(), 180, 30);
         addStudent.setBorder(new RoundedBorder(10));
+        //--
         addProfessor = new JButton("اضافه کردن استاد");
         addProfessor.setLocation(20,390);
         addProfessor.setSize(200,20);
@@ -122,14 +141,44 @@ public class Admin_Home_GUI {
         addProfessor.setFont(new Font("Arial", Font.PLAIN, 20));
         addProfessor.setBounds(addProfessor.getX(),addProfessor.getY(), 180, 30);
         addProfessor.setBorder(new RoundedBorder(10));
+        //--
+        studentsList = new JButton("لیست دانشجویان");
+        studentsList.setLocation(250,390);
+        studentsList.setSize(200,20);
+        studentsList.setForeground(text);
+        studentsList.setFont(new Font("Arial", Font.PLAIN, 20));
+        studentsList.setBounds(studentsList.getX(),studentsList.getY(), 180, 30);
+        studentsList.setBorder(new RoundedBorder(10));
+        //--
+        professorsList = new JButton("لیست اساتید");
+        professorsList.setLocation(480,390);
+        professorsList.setSize(200,20);
+        professorsList.setForeground(text);
+        professorsList.setFont(new Font("Arial", Font.PLAIN, 20));
+        professorsList.setBounds(professorsList.getX(),professorsList.getY(), 180, 30);
+        professorsList.setBorder(new RoundedBorder(10));
+        //--
+        classesList = new JButton("لیست کلاس ها");
+        classesList.setLocation(20,440);
+        classesList.setSize(200,20);
+        classesList.setForeground(text);
+        classesList.setFont(new Font("Arial", Font.PLAIN, 20));
+        classesList.setBounds(classesList.getX(),classesList.getY(), 180, 30);
+        classesList.setBorder(new RoundedBorder(10));
 
         Home.add(change);
+        Home.add(studentsList);
         Home.add(food);
+        Home.add(professorsList);
         Home.add(addStudent);
+        Home.add(classesList);
         Home.add(addProfessor);
 
     }
 
+    /**
+     * show admin home page
+     */
     public void showAdminHome() {
         Home.setVisible(true);
     }
