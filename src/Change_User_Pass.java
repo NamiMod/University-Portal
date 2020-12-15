@@ -26,7 +26,7 @@ public class Change_User_Pass {
     Color background = new Color(237, 237, 237);
 
     /**
-     * create login frame
+     * create changing frame
      */
     public Change_User_Pass() {
         changeFrame = new JFrame("تغییر نام کاربری یا رمزعبور");
