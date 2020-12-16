@@ -1,6 +1,6 @@
 /**
- * --Close Class--
- * in this class we create window to close class for professors
+ * --GetClass_Student--
+ * in this class we create window to add class to student
  * @since 2020
  * @version 1.0
  * @author Seyed Nami Modarressi
@@ -11,11 +11,11 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class CloseClass {
+public class GetClass_Student {
 
-    private JFrame closeFrame;
+    private JFrame getClassFrame;
     private JTextField name;
-    private JButton close;
+    private JButton add;
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -26,20 +26,20 @@ public class CloseClass {
     /**
      * creat window to show contents
      */
-    public CloseClass() {
-        closeFrame = new JFrame("حذف کلاس");
-        closeFrame.setSize(400, 250);
-        closeFrame.setLocationRelativeTo(null);
-        closeFrame.setLayout(null);
-        closeFrame.setResizable(false);
-        closeFrame.getContentPane().setBackground(Color.white);
-        closeFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    public GetClass_Student() {
+        getClassFrame = new JFrame("اخذ درس");
+        getClassFrame.setSize(400, 250);
+        getClassFrame.setLocationRelativeTo(null);
+        getClassFrame.setLayout(null);
+        getClassFrame.setResizable(false);
+        getClassFrame.getContentPane().setBackground(Color.white);
+        getClassFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         Close_element();
         showClose();
     }
 
     /**
-     * add elements to close class window
+     * add elements to get class window
      */
     public void Close_element() {
 
@@ -54,22 +54,22 @@ public class CloseClass {
         name.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, background));
         name.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
         name.setBackground(Color.white);
-        closeFrame.add(name);
+        getClassFrame.add(name);
 
-        close = new JButton("حذف");
-        close.setLocation(110,150);
-        close.setSize(200,70);
-        close.setForeground(text);
-        close.setFont(new Font("Arial", Font.PLAIN, 20));
-        close.setBounds(close.getX(),close.getY(), 180, 30);
-        close.setBorder(new RoundedBorder(10));
-        closeFrame.add(close);
+        add = new JButton("اخذ");
+        add.setLocation(110,150);
+        add.setSize(200,70);
+        add.setForeground(text);
+        add.setFont(new Font("Arial", Font.PLAIN, 20));
+        add.setBounds(add.getX(),add.getY(), 180, 30);
+        add.setBorder(new RoundedBorder(10));
+        getClassFrame.add(add);
     }
 
     /**
-     * show close class window
+     * show get class window
      */
     public void showClose() {
-        closeFrame.setVisible(true);
+        getClassFrame.setVisible(true);
     }
 }

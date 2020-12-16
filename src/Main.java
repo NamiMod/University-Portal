@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-       CloseClass s = new CloseClass();
+       GetClass_Student s = new GetClass_Student();
 
     }
 }
