@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ShowProfessors t = new ShowProfessors();
+        ShowClasses_Admin t = new ShowClasses_Admin();
 
     }
 }
