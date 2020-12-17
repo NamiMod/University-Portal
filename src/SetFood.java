@@ -16,18 +16,23 @@ public class SetFood {
     private JFrame food;
     private JLabel shanbe;
     private JTextField shanbe_f;
+    private JTextField shanbe_p;
 
     private JLabel yekshanbe;
     private JTextField yekshanbe_f;
+    private JTextField yekshanbe_p;
 
     private JLabel doshanbe;
     private JTextField doshanbe_f;
+    private JTextField doshanbe_p;
 
     private JLabel seshanbe;
     private JTextField seshanbe_f;
+    private JTextField seshanbe_p;
 
     private JLabel chaharshanbe;
     private JTextField chaharshanbe_f;
+    private JTextField chaharshanbe_p;
 
     private JButton add;
 
@@ -42,7 +47,7 @@ public class SetFood {
      */
     public SetFood(){
         food = new JFrame("ثبت برنامه غذایی");
-        food.setSize(400, 400);
+        food.setSize(600, 400);
         food.setLocationRelativeTo(null);
         food.setLayout(null);
         food.setResizable(false);
@@ -77,6 +82,17 @@ public class SetFood {
         shanbe_f.setBackground(Color.white);
         food.add(shanbe_f);
 
+        shanbe_p = new JTextField("price");
+        shanbe_p.setLocation(400,0);
+        shanbe_p.setSize(150,50);
+        shanbe_p.setForeground(text);
+        shanbe_p.setBorder(textBlue);
+        shanbe_p.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 0, background));
+        shanbe_p.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, background));
+        shanbe_p.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
+        shanbe_p.setBackground(Color.white);
+        food.add(shanbe_p);
+
         yekshanbe = new JLabel("یک شنبه");
         yekshanbe.setLocation(10,50);
         yekshanbe.setSize(100,50);
@@ -94,6 +110,17 @@ public class SetFood {
         yekshanbe_f.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
         yekshanbe_f.setBackground(Color.white);
         food.add(yekshanbe_f);
+
+        yekshanbe_p = new JTextField("price");
+        yekshanbe_p.setLocation(400,50);
+        yekshanbe_p.setSize(150,50);
+        yekshanbe_p.setForeground(text);
+        yekshanbe_p.setBorder(textBlue);
+        yekshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 0, background));
+        yekshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, background));
+        yekshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
+        yekshanbe_p.setBackground(Color.white);
+        food.add(yekshanbe_p);
 
         doshanbe = new JLabel("دو شنبه");
         doshanbe.setLocation(10,100);
@@ -113,6 +140,17 @@ public class SetFood {
         doshanbe_f.setBackground(Color.white);
         food.add(doshanbe_f);
 
+        doshanbe_p = new JTextField("price");
+        doshanbe_p.setLocation(400,100);
+        doshanbe_p.setSize(150,50);
+        doshanbe_p.setForeground(text);
+        doshanbe_p.setBorder(textBlue);
+        doshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 0, background));
+        doshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, background));
+        doshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
+        doshanbe_p.setBackground(Color.white);
+        food.add(doshanbe_p);
+
         seshanbe = new JLabel("سه شنبه");
         seshanbe.setLocation(10,150);
         seshanbe.setSize(100,50);
@@ -130,6 +168,17 @@ public class SetFood {
         seshanbe_f.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
         seshanbe_f.setBackground(Color.white);
         food.add(seshanbe_f);
+
+        seshanbe_p = new JTextField("price");
+        seshanbe_p.setLocation(400,150);
+        seshanbe_p.setSize(150,50);
+        seshanbe_p.setForeground(text);
+        seshanbe_p.setBorder(textBlue);
+        seshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 0, background));
+        seshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, background));
+        seshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
+        seshanbe_p.setBackground(Color.white);
+        food.add(seshanbe_p);
 
         chaharshanbe = new JLabel("چهار شنبه");
         chaharshanbe.setLocation(10,200);
@@ -149,8 +198,19 @@ public class SetFood {
         chaharshanbe_f.setBackground(Color.white);
         food.add(chaharshanbe_f);
 
+        chaharshanbe_p = new JTextField("price");
+        chaharshanbe_p.setLocation(400,200);
+        chaharshanbe_p.setSize(150,50);
+        chaharshanbe_p.setForeground(text);
+        chaharshanbe_p.setBorder(textBlue);
+        chaharshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 0, background));
+        chaharshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, background));
+        chaharshanbe_p.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
+        chaharshanbe_p.setBackground(Color.white);
+        food.add(chaharshanbe_p);
+
         add = new JButton("ثبت");
-        add.setLocation(110,300);
+        add.setLocation(220,300);
         add.setSize(200,70);
         add.setForeground(text);
         add.setFont(new Font("Arial", Font.PLAIN, 20));
