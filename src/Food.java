@@ -12,6 +12,7 @@ public class Food {
 
     /**
      * set new name for food
+     *
      * @param name name of food
      */
     public void setName(String name) {
@@ -20,6 +21,7 @@ public class Food {
 
     /**
      * get name of food
+     *
      * @return name of food
      */
     public String getName() {
@@ -28,6 +30,7 @@ public class Food {
 
     /**
      * set new price for food
+     *
      * @param price of food
      */
     public void setPrice(int price) {
@@ -36,6 +39,7 @@ public class Food {
 
     /**
      * get price of food
+     *
      * @return price of food
      */
     public int getPrice() {
