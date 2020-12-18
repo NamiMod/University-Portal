@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class UniversityClass {
 
     private String name;
+    private int[] code;
     private int counter;
     private int capacity;
     private String professorName;
@@ -21,15 +22,17 @@ public class UniversityClass {
     /**
      * create new class
      *
-     * @param name          of calss
+     * @param name          of class
      * @param counter       of class
      * @param capacity      of class
-     * @param professorName of calss
+     * @param professorName of class
+     * @param code code of class
      * @param time          time(s) of class
      */
-    public UniversityClass(String name, int counter, int capacity, String professorName, int[][] time) {
+    public UniversityClass(String name, int counter, int capacity, String professorName,int[] code, int[][] time) {
         this.name = name;
         this.counter = counter;
+        this.code = code;
         this.capacity = capacity;
         this.professorName = professorName;
         this.time = time;
@@ -107,5 +110,12 @@ public class UniversityClass {
      */
     public ArrayList<Student> getStudents() {
         return students;
+    }
+
+    /**
+     * @return code of class
+     */
+    public int[] getCode() {
+        return code;
     }
 }
