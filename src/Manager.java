@@ -33,13 +33,13 @@ public class Manager {
      * @return possible or not
      * @throws IOException file not found
      */
-    public boolean login(String username, String password) throws IOException {
+    public int login(String username, String password) throws IOException {
         try {
             FileReader fileReader = new FileReader(login);
             Scanner getString = new Scanner(fileReader);
             String username_temp;
             String password_temp;
-            String kind;
+            String kind="";
 
             while (getString.hasNextLine()) {
 
@@ -50,15 +50,24 @@ public class Manager {
                 if (username.equals(username_temp) && password.equals(password_temp)) {
                     fileReader.close();
                     getString.close();
-                    return true;
+                    break;
                 }
             }
-            fileReader.close();
-            getString.close();
-            return false;
+            if (kind.equals("admin")){
+                return 0;
+            }
+            if (kind.equals("student")){
+                return 1;
+            }
+            if (kind.equals("professor")){
+                return 2;
+            }
+
+            return -1;
+
         } catch (IOException e) {
             System.out.println("File Not Found !");
-            return false;
+            return -1;
         }
     }
 
@@ -76,7 +85,7 @@ public class Manager {
             fww.write("");
             fww.close();
 
-            FileWriter fw = new FileWriter("temp.txt", false);
+            FileWriter fw = new FileWriter("temp.txt", true);
             FileReader fileReader = new FileReader(login);
             Scanner getString = new Scanner(fileReader);
 
@@ -103,6 +112,20 @@ public class Manager {
             fw.close();
             getString.close();
             fileReader.close();
+
+
+            FileWriter copy = new FileWriter(login, false);
+            FileReader fileReader2 = new FileReader(temp);
+            Scanner getString2 = new Scanner(fileReader2);
+
+            while (getString2.hasNextLine()){
+                copy.write(getString2.nextLine()+'\n');
+            }
+
+            copy.close();
+            fileReader2.close();
+            getString2.close();
+
             return true;
 
         }catch (IOException e){
