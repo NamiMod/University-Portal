@@ -1,11 +1,12 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Manager s = new Manager();
-        s.change("admin","admin","salammmmmmmmm","salamkhobi");
+        Admin p = new Admin();
+
+        p.addProfessor("salam","salam");
+
     }
 }
