@@ -156,7 +156,7 @@ public class FoodReservation {
         add.setForeground(text);
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setBounds(add.getX(),add.getY(), 180, 30);
-        add.setBorder(new RoundedBorder(10));
+        add.setBorder(new RoundedBorder(30));
         food.add(add);
 
     }

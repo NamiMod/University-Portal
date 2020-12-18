@@ -117,41 +117,41 @@ public class Professor_Home_GUI {
         change.setLocation(20,340);
         change.setSize(350,20);
         change.setForeground(text);
-        change.setFont(new Font("Arial", Font.PLAIN, 20));
+        change.setFont(new Font("Arial", Font.PLAIN, 18));
         change.setBounds(change.getX(),change.getY(), 180, 30);
-        change.setBorder(new RoundedBorder(10));
+        change.setBorder(new RoundedBorder(30));
         //--
         addClass = new JButton("اضافه کردن کلاس");
         addClass.setLocation(250,340);
         addClass.setSize(200,20);
         addClass.setForeground(text);
-        addClass.setFont(new Font("Arial", Font.PLAIN, 20));
+        addClass.setFont(new Font("Arial", Font.PLAIN, 18));
         addClass.setBounds(addClass.getX(),addClass.getY(), 180, 30);
-        addClass.setBorder(new RoundedBorder(10));
+        addClass.setBorder(new RoundedBorder(30));
         //--
         setGrade = new JButton("دانشجویان و نمرات");
         setGrade.setLocation(480,340);
         setGrade.setSize(200,20);
         setGrade.setForeground(text);
-        setGrade.setFont(new Font("Arial", Font.PLAIN, 20));
+        setGrade.setFont(new Font("Arial", Font.PLAIN, 18));
         setGrade.setBounds(setGrade.getX(),setGrade.getY(), 180, 30);
-        setGrade.setBorder(new RoundedBorder(10));
+        setGrade.setBorder(new RoundedBorder(30));
         //--
         seeClasses = new JButton("لیست کلاس ها");
         seeClasses.setLocation(20,390);
         seeClasses.setSize(200,20);
         seeClasses.setForeground(text);
-        seeClasses.setFont(new Font("Arial", Font.PLAIN, 20));
+        seeClasses.setFont(new Font("Arial", Font.PLAIN, 18));
         seeClasses.setBounds(seeClasses.getX(),seeClasses.getY(), 180, 30);
-        seeClasses.setBorder(new RoundedBorder(10));
+        seeClasses.setBorder(new RoundedBorder(30));
         //--
         closeClass = new JButton("بستن کلاس");
         closeClass.setLocation(250,390);
         closeClass.setSize(200,20);
         closeClass.setForeground(text);
-        closeClass.setFont(new Font("Arial", Font.PLAIN, 20));
+        closeClass.setFont(new Font("Arial", Font.PLAIN, 18));
         closeClass.setBounds(closeClass.getX(),closeClass.getY(), 180, 30);
-        closeClass.setBorder(new RoundedBorder(10));
+        closeClass.setBorder(new RoundedBorder(30));
 
         Home.add(change);
         Home.add(addClass);

@@ -96,7 +96,7 @@ public class Change_User_Pass {
         change.setForeground(text);
         change.setFont(new Font("Arial", Font.PLAIN, 20));
         change.setBounds(change.getX(),change.getY(), 180, 30);
-        change.setBorder(new RoundedBorder(10));
+        change.setBorder(new RoundedBorder(30));
         changeFrame.add(change);
     }
 

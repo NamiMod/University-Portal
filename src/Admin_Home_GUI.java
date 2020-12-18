@@ -114,57 +114,57 @@ public class Admin_Home_GUI {
         change.setLocation(20,340);
         change.setSize(350,20);
         change.setForeground(text);
-        change.setFont(new Font("Arial", Font.PLAIN, 20));
+        change.setFont(new Font("Arial", Font.PLAIN, 18));
         change.setBounds(change.getX(),change.getY(), 180, 30);
-        change.setBorder(new RoundedBorder(10));
+        change.setBorder(new RoundedBorder(30));
         //--
         food = new JButton("ثبت برنامه غذا");
         food.setLocation(250,340);
         food.setSize(200,20);
         food.setForeground(text);
-        food.setFont(new Font("Arial", Font.PLAIN, 20));
+        food.setFont(new Font("Arial", Font.PLAIN, 18));
         food.setBounds(food.getX(),food.getY(), 180, 30);
-        food.setBorder(new RoundedBorder(10));
+        food.setBorder(new RoundedBorder(30));
         //--
         addStudent = new JButton("اضافه کردن دانشجو");
         addStudent.setLocation(480,340);
         addStudent.setSize(200,20);
         addStudent.setForeground(text);
-        addStudent.setFont(new Font("Arial", Font.PLAIN, 20));
+        addStudent.setFont(new Font("Arial", Font.PLAIN, 18));
         addStudent.setBounds(addStudent.getX(),addStudent.getY(), 180, 30);
-        addStudent.setBorder(new RoundedBorder(10));
+        addStudent.setBorder(new RoundedBorder(30));
         //--
         addProfessor = new JButton("اضافه کردن استاد");
         addProfessor.setLocation(20,390);
         addProfessor.setSize(200,20);
         addProfessor.setForeground(text);
-        addProfessor.setFont(new Font("Arial", Font.PLAIN, 20));
+        addProfessor.setFont(new Font("Arial", Font.PLAIN, 18));
         addProfessor.setBounds(addProfessor.getX(),addProfessor.getY(), 180, 30);
-        addProfessor.setBorder(new RoundedBorder(10));
+        addProfessor.setBorder(new RoundedBorder(30));
         //--
         studentsList = new JButton("لیست دانشجویان");
         studentsList.setLocation(250,390);
         studentsList.setSize(200,20);
         studentsList.setForeground(text);
-        studentsList.setFont(new Font("Arial", Font.PLAIN, 20));
+        studentsList.setFont(new Font("Arial", Font.PLAIN, 18));
         studentsList.setBounds(studentsList.getX(),studentsList.getY(), 180, 30);
-        studentsList.setBorder(new RoundedBorder(10));
+        studentsList.setBorder(new RoundedBorder(30));
         //--
         professorsList = new JButton("لیست اساتید");
         professorsList.setLocation(480,390);
         professorsList.setSize(200,20);
         professorsList.setForeground(text);
-        professorsList.setFont(new Font("Arial", Font.PLAIN, 20));
+        professorsList.setFont(new Font("Arial", Font.PLAIN, 18));
         professorsList.setBounds(professorsList.getX(),professorsList.getY(), 180, 30);
-        professorsList.setBorder(new RoundedBorder(10));
+        professorsList.setBorder(new RoundedBorder(30));
         //--
         classesList = new JButton("لیست کلاس ها");
         classesList.setLocation(20,440);
         classesList.setSize(200,20);
         classesList.setForeground(text);
-        classesList.setFont(new Font("Arial", Font.PLAIN, 20));
+        classesList.setFont(new Font("Arial", Font.PLAIN, 18));
         classesList.setBounds(classesList.getX(),classesList.getY(), 180, 30);
-        classesList.setBorder(new RoundedBorder(10));
+        classesList.setBorder(new RoundedBorder(30));
 
         Home.add(change);
         Home.add(studentsList);

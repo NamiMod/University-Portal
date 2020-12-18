@@ -62,7 +62,7 @@ public class CloseClass {
         close.setForeground(text);
         close.setFont(new Font("Arial", Font.PLAIN, 20));
         close.setBounds(close.getX(),close.getY(), 180, 30);
-        close.setBorder(new RoundedBorder(10));
+        close.setBorder(new RoundedBorder(30));
         closeFrame.add(close);
     }
 

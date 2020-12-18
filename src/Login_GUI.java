@@ -11,6 +11,8 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Login_GUI {
 
@@ -78,7 +80,16 @@ public class Login_GUI {
         login.setForeground(text);
         login.setFont(new Font("Arial", Font.PLAIN, 20));
         login.setBounds(login.getX(),login.getY(), 180, 30);
-        login.setBorder(new RoundedBorder(10));
+        login.setBorder(new RoundedBorder(30));
+        login.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Admin_Home_GUI p = new Admin_Home_GUI();
+                Student_Home_GUI q = new Student_Home_GUI();
+                Professor_Home_GUI k = new Professor_Home_GUI();
+            }
+        });
+
 
         loginFrame.add(login);
         loginFrame.add(password);

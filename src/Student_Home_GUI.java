@@ -133,41 +133,41 @@ public class Student_Home_GUI {
         change.setLocation(20,340);
         change.setSize(350,20);
         change.setForeground(text);
-        change.setFont(new Font("Arial", Font.PLAIN, 20));
+        change.setFont(new Font("Arial", Font.PLAIN, 18));
         change.setBounds(change.getX(),change.getY(), 180, 30);
-        change.setBorder(new RoundedBorder(10));
+        change.setBorder(new RoundedBorder(30));
         //--
         food = new JButton("رزرو غذا");
         food.setLocation(250,340);
         food.setSize(200,20);
         food.setForeground(text);
-        food.setFont(new Font("Arial", Font.PLAIN, 20));
+        food.setFont(new Font("Arial", Font.PLAIN, 18));
         food.setBounds(food.getX(),food.getY(), 180, 30);
-        food.setBorder(new RoundedBorder(10));
+        food.setBorder(new RoundedBorder(30));
         //--
         addCredit = new JButton("افزایش اعتبار");
         addCredit.setLocation(480,340);
         addCredit.setSize(200,20);
         addCredit.setForeground(text);
-        addCredit.setFont(new Font("Arial", Font.PLAIN, 20));
+        addCredit.setFont(new Font("Arial", Font.PLAIN, 18));
         addCredit.setBounds(addCredit.getX(),addCredit.getY(), 180, 30);
-        addCredit.setBorder(new RoundedBorder(10));
+        addCredit.setBorder(new RoundedBorder(30));
         //--
         addClass = new JButton("اخذ کلاس");
         addClass.setLocation(20,390);
         addClass.setSize(200,20);
         addClass.setForeground(text);
-        addClass.setFont(new Font("Arial", Font.PLAIN, 20));
+        addClass.setFont(new Font("Arial", Font.PLAIN, 18));
         addClass.setBounds(addClass.getX(),addClass.getY(), 180, 30);
-        addClass.setBorder(new RoundedBorder(10));
+        addClass.setBorder(new RoundedBorder(30));
         //--
         seeClass = new JButton("کلاس های اخذ شده");
         seeClass.setLocation(250,390);
         seeClass.setSize(200,20);
         seeClass.setForeground(text);
-        seeClass.setFont(new Font("Arial", Font.PLAIN, 20));
+        seeClass.setFont(new Font("Arial", Font.PLAIN, 18));
         seeClass.setBounds(seeClass.getX(),seeClass.getY(), 180, 30);
-        seeClass.setBorder(new RoundedBorder(10));
+        seeClass.setBorder(new RoundedBorder(30));
 
         Home.add(change);
         Home.add(addClass);
