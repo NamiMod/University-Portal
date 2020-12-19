@@ -10,6 +10,9 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class SetFood {
 
@@ -216,6 +219,31 @@ public class SetFood {
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setBounds(add.getX(),add.getY(), 180, 30);
         add.setBorder(new RoundedBorder(30));
+        add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                food.hide();
+                Food[] f = new Food[5];
+                f[0].setName(shanbe_f.getText());
+                f[0].setPrice(Integer.parseInt(shanbe_p.getText()));
+                f[1].setName(yekshanbe_f.getText());
+                f[1].setPrice(Integer.parseInt(yekshanbe_p.getText()));
+                f[2].setName(doshanbe_f.getText());
+                f[2].setPrice(Integer.parseInt(doshanbe_p.getText()));
+                f[3].setName(seshanbe_f.getText());
+                f[3].setPrice(Integer.parseInt(seshanbe_p.getText()));
+                f[4].setName(chaharshanbe_f.getText());
+                f[4].setPrice(Integer.parseInt(chaharshanbe_p.getText()));
+                FoodSchedule n = new FoodSchedule();
+                n.setSchedule(f);
+                Admin a = new Admin();
+                a.addFoodSchedule(n);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
         food.add(add);
 
     }
