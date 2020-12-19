@@ -10,6 +10,10 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.LocalTime;
+import java.util.Date;
 
 public class Admin_Home_GUI {
 
@@ -27,6 +31,8 @@ public class Admin_Home_GUI {
     private JButton studentsList;
     private JButton professorsList;
     private JButton classesList;
+    private String name;
+    private LocalTime d;
 
     Color outBlue = new Color(0,128,255);
     Color text = new Color(43,62,100);
@@ -36,9 +42,11 @@ public class Admin_Home_GUI {
 
     /**
      * create admin home page
+     * @param d
      */
-    public Admin_Home_GUI() {
-
+    public Admin_Home_GUI(String name,LocalTime d) {
+        this.name=name;
+        this.d=d;
         Home = new JFrame();
         Home = new JFrame("پنل مدیریت ادمین");
         Home.setSize(700, 550);
@@ -97,10 +105,12 @@ public class Admin_Home_GUI {
         AccessLevel = new JLabel("Access Level : Admin");
         AccessLevel.setLocation(400 , 50);
         AccessLevel.setSize(200,50);
-        username = new JLabel("User : admin ");
+        username = new JLabel();
+        username.setText("User : "+ name );
         username.setLocation(400,80);
         username.setSize(200,50);
-        loginDate = new JLabel("Login : HH : MM : SS");
+        loginDate = new JLabel();
+        loginDate.setText("Login : "+ d.getHour()+':'+d.getMinute()+':'+d.getSecond());
         loginDate.setLocation(400,110);
         loginDate.setSize(200,50);
         Home.add(AccessLevel);
@@ -108,63 +118,118 @@ public class Admin_Home_GUI {
         Home.add(loginDate);
         Home.add(info);
 
-
         // adding buttons for admin
         change = new JButton("تغییر مشخصات");
         change.setLocation(20,340);
         change.setSize(350,20);
+        change.setToolTipText("تغییر نام کاربری یا رمز عبور");
         change.setForeground(text);
         change.setFont(new Font("Arial", Font.PLAIN, 18));
         change.setBounds(change.getX(),change.getY(), 180, 30);
         change.setBorder(new RoundedBorder(30));
+        change.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Change_User_Pass p = new Change_User_Pass();
+                Home.hide();
+            }
+        });
         //--
         food = new JButton("ثبت برنامه غذا");
         food.setLocation(250,340);
+        food.setToolTipText("اضافه کردن برنامه غذایی");
         food.setSize(200,20);
         food.setForeground(text);
         food.setFont(new Font("Arial", Font.PLAIN, 18));
         food.setBounds(food.getX(),food.getY(), 180, 30);
         food.setBorder(new RoundedBorder(30));
+        food.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SetFood s = new SetFood();
+                Home.hide();
+            }
+        });
         //--
         addStudent = new JButton("اضافه کردن دانشجو");
         addStudent.setLocation(480,340);
         addStudent.setSize(200,20);
         addStudent.setForeground(text);
+        addStudent.setToolTipText("اضافه کردن یک دانشجو جدید به سیستم");
         addStudent.setFont(new Font("Arial", Font.PLAIN, 18));
         addStudent.setBounds(addStudent.getX(),addStudent.getY(), 180, 30);
         addStudent.setBorder(new RoundedBorder(30));
+        addStudent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Add_Student p = new Add_Student();
+                Home.hide();
+            }
+        });
         //--
         addProfessor = new JButton("اضافه کردن استاد");
         addProfessor.setLocation(20,390);
         addProfessor.setSize(200,20);
         addProfessor.setForeground(text);
+        addProfessor.setToolTipText("اضافه کردن یک استاد جدید به سیستم");
         addProfessor.setFont(new Font("Arial", Font.PLAIN, 18));
         addProfessor.setBounds(addProfessor.getX(),addProfessor.getY(), 180, 30);
         addProfessor.setBorder(new RoundedBorder(30));
+        addProfessor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Add_Professor p = new Add_Professor();
+                Home.hide();
+            }
+        });
         //--
         studentsList = new JButton("لیست دانشجویان");
         studentsList.setLocation(250,390);
         studentsList.setSize(200,20);
         studentsList.setForeground(text);
+        studentsList.setToolTipText("مشاهده لیست دانشجویان");
         studentsList.setFont(new Font("Arial", Font.PLAIN, 18));
         studentsList.setBounds(studentsList.getX(),studentsList.getY(), 180, 30);
         studentsList.setBorder(new RoundedBorder(30));
+        studentsList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ShowStudents p = new ShowStudents();
+                Home.hide();
+            }
+        });
         //--
         professorsList = new JButton("لیست اساتید");
         professorsList.setLocation(480,390);
         professorsList.setSize(200,20);
+        professorsList.setToolTipText("مشاهده لیست اساتید");
         professorsList.setForeground(text);
         professorsList.setFont(new Font("Arial", Font.PLAIN, 18));
         professorsList.setBounds(professorsList.getX(),professorsList.getY(), 180, 30);
         professorsList.setBorder(new RoundedBorder(30));
+        professorsList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ShowProfessors p = new ShowProfessors();
+                Home.hide();
+            }
+        });
         //--
         classesList = new JButton("لیست کلاس ها");
         classesList.setLocation(20,440);
         classesList.setSize(200,20);
+        classesList.setToolTipText("مشاهده لیست کلاس ها");
         classesList.setForeground(text);
         classesList.setFont(new Font("Arial", Font.PLAIN, 18));
         classesList.setBounds(classesList.getX(),classesList.getY(), 180, 30);
         classesList.setBorder(new RoundedBorder(30));
+        classesList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ShowClasses_Admin p = new ShowClasses_Admin();
+                Home.hide();
+            }
+        });
 
         Home.add(change);
         Home.add(studentsList);

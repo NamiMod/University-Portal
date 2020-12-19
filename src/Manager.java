@@ -40,6 +40,7 @@ public class Manager {
             String username_temp;
             String password_temp;
             String kind="";
+            boolean flag = false;
 
             while (getString.hasNextLine()) {
 
@@ -50,20 +51,24 @@ public class Manager {
                 if (username.equals(username_temp) && password.equals(password_temp)) {
                     fileReader.close();
                     getString.close();
+                    flag = true;
                     break;
                 }
             }
-            if (kind.equals("admin")){
-                return 0;
+            if (!flag){
+                return -1;
+            }else {
+                if (kind.equals("admin")) {
+                    return 0;
+                }
+                if (kind.equals("student")) {
+                    return 1;
+                }
+                if (kind.equals("professor")) {
+                    return 2;
+                }
             }
-            if (kind.equals("student")){
-                return 1;
-            }
-            if (kind.equals("professor")){
-                return 2;
-            }
-
-            return -1;
+            return -2;
 
         } catch (IOException e) {
             System.out.println("File Not Found !");

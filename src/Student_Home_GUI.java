@@ -10,6 +10,8 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.time.LocalTime;
+import java.util.Date;
 
 public class Student_Home_GUI {
 
@@ -40,7 +42,7 @@ public class Student_Home_GUI {
     /**
      * create student home page
      */
-    public Student_Home_GUI(String name) {
+    public Student_Home_GUI(String name , LocalTime l) {
 
         this.name = name;
         Home = new JFrame();

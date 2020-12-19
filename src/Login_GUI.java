@@ -99,17 +99,21 @@ public class Login_GUI {
                         Manager m = new Manager();
                         int c;
                         c = m.login(username.getText() , password.getText());
-                        if (c == 0){
-                            Admin_Home_GUI p = new Admin_Home_GUI();
-                            loginFrame.hide();
-                        }
-                        if (c == 1){
-                            Student_Home_GUI q = new Student_Home_GUI(username.getText());
-                            loginFrame.hide();
-                        }
-                        if (c == 2){
-                            Professor_Home_GUI n = new Professor_Home_GUI(username.getText());
-                            loginFrame.hide();
+                        if (c == -1){
+                            showMessageDialog(null, "Username or Password is incorrect");
+                        }else {
+                            if (c == 0) {
+                                Admin_Home_GUI p = new Admin_Home_GUI(username.getText(),java.time.LocalTime.now());
+                                loginFrame.hide();
+                            }
+                            if (c == 1) {
+                                Student_Home_GUI q = new Student_Home_GUI(username.getText(), java.time.LocalTime.now());
+                                loginFrame.hide();
+                            }
+                            if (c == 2) {
+                                Professor_Home_GUI n = new Professor_Home_GUI(username.getText(),java.time.LocalTime.now());
+                                loginFrame.hide();
+                            }
                         }
                     } catch (IOException fileNotFoundException) {
                         System.out.println("Cant login !");
