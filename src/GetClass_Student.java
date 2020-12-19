@@ -15,6 +15,7 @@ public class GetClass_Student {
 
     private JFrame getClassFrame;
     private JTextField name;
+    private JTextField professorName;
     private JButton add;
 
     Color outBlue = new Color(0, 128, 255);
@@ -46,7 +47,7 @@ public class GetClass_Student {
         Border textBlue = new BevelBorder(BevelBorder.LOWERED, outBlue,background);
 
         name = new JTextField("name");
-        name.setLocation(75,20);
+        name.setLocation(75,15);
         name.setSize(250,50);
         name.setForeground(text);
         name.setBorder(textBlue);
@@ -56,8 +57,19 @@ public class GetClass_Student {
         name.setBackground(Color.white);
         getClassFrame.add(name);
 
+        professorName = new JTextField("professor name");
+        professorName.setLocation(75,75);
+        professorName.setSize(250,50);
+        professorName.setForeground(text);
+        professorName.setBorder(textBlue);
+        professorName.setBorder(BorderFactory.createMatteBorder(0, 1, 0, 0, background));
+        professorName.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, background));
+        professorName.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
+        professorName.setBackground(Color.white);
+        getClassFrame.add(professorName);
+
         add = new JButton("اخذ");
-        add.setLocation(110,150);
+        add.setLocation(110,170);
         add.setSize(200,70);
         add.setForeground(text);
         add.setFont(new Font("Arial", Font.PLAIN, 20));

@@ -16,21 +16,22 @@ public class Professor {
     /**
      * create new Professor
      */
-    public Professor(){
+    public Professor() {
         classes = new File("classes.txt");
     }
 
     /**
      * create new class
-     * @param name of class
-     * @param counter of class
-     * @param capacity of class
+     *
+     * @param name          of class
+     * @param counter       of class
+     * @param capacity      of class
      * @param professorName of class
-     * @param time of class
+     * @param time          of class
      * @return possible or not
      * @throws IOException when cant write in file
      */
-    public boolean addClass(String name , String counter , String capacity , String professorName , int[][] time) throws IOException {
+    public boolean addClass(String name, String counter, String capacity, String professorName, int[][] time) throws IOException {
 
         try {
             FileReader fr = new FileReader("classes_name.txt");
@@ -63,7 +64,7 @@ public class Professor {
             fw2.close();
 
             return true;
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Cant write !");
             return false;
         }
@@ -71,6 +72,7 @@ public class Professor {
 
     /**
      * close class
+     *
      * @param name of the class
      * @return possible or not
      */
@@ -161,10 +163,60 @@ public class Professor {
                 return true;
 
             }
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Cant write !");
             return false;
         }
     }
+
+    /**
+     * see list of students for Professor
+     * @param professorName professor name
+     * @return list as String
+     * @throws FileNotFoundException cant read file
+     */
+    public String getStudents(String professorName) throws FileNotFoundException {
+
+        try {
+            FileReader fileReader = new FileReader("students.txt");
+
+            Scanner getString = new Scanner(fileReader);
+
+            String name;
+            String credit;
+            String kind;
+            String grade;
+            String courseCounter;
+            String classCounter;
+            String className;
+            String result = "";
+
+            while (getString.hasNextLine()) {
+
+                name = getString.nextLine();
+                credit = getString.nextLine();
+                kind = getString.nextLine();
+                grade = getString.nextLine();
+                courseCounter = getString.nextLine();
+                classCounter = getString.nextLine();
+                String t1;
+                String t2;
+                for (int i = 0; i < Integer.parseInt(classCounter); i++) {
+                    t1 = getString.nextLine();
+                    t2 = getString.nextLine();
+                    if (t2.equals(professorName)) {
+                        result = result + t1 +" : "+ name + '\n';
+                    }
+                }
+            }
+            fileReader.close();
+            getString.close();
+            return result;
+        }catch (IOException e){
+            System.out.println("Cant read!");
+            return null;
+        }
+    }
+
 
 }
