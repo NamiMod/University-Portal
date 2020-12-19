@@ -13,6 +13,10 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class Login_GUI {
 
@@ -81,6 +85,40 @@ public class Login_GUI {
         login.setFont(new Font("Arial", Font.PLAIN, 20));
         login.setBounds(login.getX(),login.getY(), 180, 30);
         login.setBorder(new RoundedBorder(30));
+        login.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (username.getText().length() == 0){
+                    showMessageDialog(null, "username in empty !");
+                }
+                else if (password.getText().length() == 0){
+                    showMessageDialog(null, "password in empty !");
+                }
+                else {
+                    try {
+                        Manager m = new Manager();
+                        int c;
+                        c = m.login(username.getText() , password.getText());
+                        if (c == 0){
+                            Admin_Home_GUI p = new Admin_Home_GUI();
+                            loginFrame.hide();
+                        }
+                        if (c == 1){
+                            Student_Home_GUI q = new Student_Home_GUI(username.getText());
+                            loginFrame.hide();
+                        }
+                        if (c == 2){
+                            Professor_Home_GUI n = new Professor_Home_GUI(username.getText());
+                            loginFrame.hide();
+                        }
+                    } catch (IOException fileNotFoundException) {
+                        System.out.println("Cant login !");
+                    }
+
+                }
+
+            }
+        });
 
         loginFrame.add(login);
         loginFrame.add(password);

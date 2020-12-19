@@ -1,10 +1,8 @@
-import java.io.IOException;
-
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
 
-        GetClass_Student s = new GetClass_Student();
+        Login_GUI portal = new Login_GUI();
 
     }
 }

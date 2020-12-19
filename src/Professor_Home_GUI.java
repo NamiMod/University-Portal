@@ -26,6 +26,7 @@ public class Professor_Home_GUI {
     private JButton setGrade;
     private JButton seeClasses;
     private JButton closeClass;
+    private String name;
 
     Color outBlue = new Color(0,128,255);
     Color text = new Color(43,62,100);
@@ -36,8 +37,9 @@ public class Professor_Home_GUI {
     /**
      * create professor home page
      */
-    public Professor_Home_GUI() {
+    public Professor_Home_GUI(String name) {
 
+        this.name=name;
         Home = new JFrame();
         Home = new JFrame("پنل مدیریت استاد");
         Home.setSize(700, 500);

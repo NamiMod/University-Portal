@@ -29,6 +29,7 @@ public class Student_Home_GUI {
     private JButton addCredit;
     private JButton addClass;
     private JButton seeClass;
+    private String name;
 
     Color outBlue = new Color(0,128,255);
     Color text = new Color(43,62,100);
@@ -39,8 +40,9 @@ public class Student_Home_GUI {
     /**
      * create student home page
      */
-    public Student_Home_GUI() {
+    public Student_Home_GUI(String name) {
 
+        this.name = name;
         Home = new JFrame();
         Home = new JFrame("پنل مدیریت دانشجو");
         Home.setSize(700, 500);
