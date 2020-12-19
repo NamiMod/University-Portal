@@ -177,7 +177,7 @@ public class Admin_Home_GUI {
         food.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SetFood s = new SetFood();
+                SetFood s = new SetFood(name,d);
                 Home.hide();
             }
         });
@@ -193,7 +193,7 @@ public class Admin_Home_GUI {
         addStudent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Add_Student p = new Add_Student();
+                Add_Student p = new Add_Student(name,d);
                 Home.hide();
             }
         });

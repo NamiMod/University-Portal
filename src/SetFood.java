@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.time.LocalTime;
 
 public class SetFood {
 
@@ -39,6 +40,9 @@ public class SetFood {
 
     private JButton add;
 
+    private String name;
+    private LocalTime l;
+
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
     Color lightBlue_1 = new Color(69, 162, 255);
@@ -48,7 +52,7 @@ public class SetFood {
     /**
      * creat window to set foods
      */
-    public SetFood(){
+    public SetFood(String name , LocalTime l){
         food = new JFrame("ثبت برنامه غذایی");
         food.setSize(600, 400);
         food.setLocationRelativeTo(null);
@@ -57,6 +61,8 @@ public class SetFood {
         food.getContentPane().setBackground(Color.white);
         food.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         food_element();
+        this.name=name;
+        this.l=l;
         showfood();
     }
 
@@ -224,6 +230,7 @@ public class SetFood {
             public void actionPerformed(ActionEvent e) {
                 try {
                 food.hide();
+                Admin_Home_GUI p = new Admin_Home_GUI(name,l);
                 Food[] f = new Food[5];
                 f[0].setName(shanbe_f.getText());
                 f[0].setPrice(Integer.parseInt(shanbe_p.getText()));

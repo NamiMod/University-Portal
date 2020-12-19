@@ -10,6 +10,10 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.time.LocalTime;
 
 public class Add_Student {
     private JFrame addFrame;
@@ -17,6 +21,8 @@ public class Add_Student {
     private JTextField password;
     private JButton add;
     private JCheckBox kind;
+    private String name;
+    private LocalTime l;
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -27,13 +33,15 @@ public class Add_Student {
     /**
      * create add student frame
      */
-    public Add_Student() {
+    public Add_Student(String name,LocalTime l) {
         addFrame = new JFrame("اضافه کردن دانشجو به سیستم");
         addFrame.setSize(400, 300);
         addFrame.setLocationRelativeTo(null);
         addFrame.setLayout(null);
         addFrame.setResizable(false);
         addFrame.getContentPane().setBackground(Color.white);
+        this.name=name;
+        this.l=l;
         addFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         ADDStudent_element();
         showADDStudent();
@@ -79,6 +87,26 @@ public class Add_Student {
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setBounds(add.getX(),add.getY(), 180, 30);
         add.setBorder(new RoundedBorder(30));
+        add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Admin p = new Admin();
+                char c;
+                if (kind.isSelected()){
+                    c = '1';
+                }else {
+                    c = '0';
+                }
+                try {
+                    p.addStudent(username.getText(), password.getText(),c);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                addFrame.hide();
+                Admin_Home_GUI q = new Admin_Home_GUI(name,l);
+            }
+
+        });
         addFrame.add(add);
     }
 
