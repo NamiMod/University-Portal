@@ -217,6 +217,47 @@ public class Professor {
             System.out.println("Cant read!");
             return null;
         }
+
+    }
+
+    /**
+     * get class of professor
+     * @param name name of professor
+     * @return list of classes
+     * @throws FileNotFoundException when cant read file
+     */
+    public String getClasses(String name) throws FileNotFoundException {
+
+        try {
+            FileReader f = new FileReader("classes.txt");
+
+            Scanner s = new Scanner(f);
+            String n;
+            String capacity;
+            String counter;
+            String proname;
+            String k;
+            String result = "";
+
+            while (s.hasNextLine()) {
+                n = s.nextLine();
+                counter = s.nextLine();
+                capacity = s.nextLine();
+                proname = s.nextLine();
+                for (int i = 0; i < 15; i++) {
+                    k = s.nextLine();
+                }
+
+                if (name.equals(proname)) {
+                    result = result + n + '\n';
+                }
+            }
+            return result;
+        }catch (IOException e){
+            System.out.println("Cant read file !");
+            return null;
+        }
+
     }
 
 }

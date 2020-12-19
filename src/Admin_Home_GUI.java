@@ -15,6 +15,8 @@ import java.awt.event.ActionListener;
 import java.time.LocalTime;
 import java.util.Date;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class Admin_Home_GUI {
 
     private JFrame Home;
@@ -68,14 +70,43 @@ public class Admin_Home_GUI {
         menu = new JMenuBar();
         menu_inside = new JMenu("Help");
         JMenuItem Help = new JMenuItem("How to use");
+        Help.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showMessageDialog(null, "با استفاده از عملکرد های تعبیه شده سیستم را مدریت کنید");
+            }
+        });
         JMenuItem Report = new JMenuItem("Report Bug");
+        Report.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showMessageDialog(null, "ایراد خود را به این ادرس ایمیل نمایید  s.namimodarressi@gmail.com");
+            }
+        });
         JMenuItem About = new JMenuItem("About software");
+        About.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showMessageDialog(null, "پرتال دانشگاه صنعتی امیر کبیر");
+            }
+        });
+        JMenuItem logout = new JMenuItem("Log out");
+        logout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Home.hide();
+                Login_GUI p = new Login_GUI();
+            }
+        });
         menu_inside.add(Help);
         menu_inside.add(Report);
         menu_inside.add(About);
+        menu_inside.add(logout);
         menu.add(menu_inside);
         menu.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, lightBlue_1));
         Home.setJMenuBar(menu);
+
+
     }
 
     /**

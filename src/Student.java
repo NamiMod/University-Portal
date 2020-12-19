@@ -149,11 +149,19 @@ public class Student {
                     t2 = getString.nextLine();
                 }
 
-                if (name.equals(studentName)) {
-                    if (Integer.parseInt(credit) > x)
+                if (name.equals(studentName) && kind.equals("0")) {
+                    if (Integer.parseInt(credit) > x) {
                         result = Integer.parseInt(credit) - x;
-                    flag = true;
-                    break;
+                        flag = true;
+                        break;
+                    }
+                }
+                if (name.equals(studentName) && kind.equals("1")) {
+                    if (Integer.parseInt(credit) > x) {
+                        result = Integer.parseInt(credit) - x/2;
+                        flag = true;
+                        break;
+                    }
                 }
             }
             fileReader.close();
@@ -282,8 +290,6 @@ public class Student {
 
         try {
             FileReader fileReader = new FileReader("students.txt");
-
-
             Scanner getString = new Scanner(fileReader);
             String name;
             String credit;
@@ -293,6 +299,7 @@ public class Student {
             String classCounter;
             String className;
             int result = 0;
+            int result2 = 0;
             while (getString.hasNextLine()) {
                 name = getString.nextLine();
                 credit = getString.nextLine();
@@ -309,6 +316,7 @@ public class Student {
 
                 if (name.equals(studentName)) {
                     result = 1 + Integer.parseInt(credit);
+                    result2 = Integer.parseInt(courseCounter) + getCounter(name);
                     break;
                 }
             }
@@ -338,7 +346,11 @@ public class Student {
                 grade = getString2.nextLine();
                 fw.write(grade + '\n');
                 courseCounter = getString2.nextLine();
-                fw.write(courseCounter + '\n');
+                if (name.equals(studentName)) {
+                    fw.write(""+result2 + '\n');
+                }else {
+                    fw.write(courseCounter + '\n');
+                }
                 classCounter = getString2.nextLine();
                 fw.write("" + classCounter + '\n');
                 String t1;
@@ -512,6 +524,12 @@ public class Student {
         }
     }
 
+    /**
+     * set new grade
+     * @param names students and classes
+     * @param grades grades
+     * @throws IOException when cant read file
+     */
     public void setGrades(String names , String grades) throws IOException {
 
         FileWriter copy1 = new FileWriter("grade1.txt", false);
@@ -544,5 +562,170 @@ public class Student {
         getString2.close();
 
     }
+
+    /**
+     * get grade of student
+     * @param studentName name of student
+     * @return grade
+     * @throws IOException when cant read file
+     */
+    public float getGrade(String studentName) throws IOException {
+        FileReader fileReader = new FileReader("students.txt");
+        Scanner getString = new Scanner(fileReader);
+        String name;
+        String credit;
+        String kind;
+        String grade;
+        String courseCounter;
+        String classCounter;
+        String className;
+        int result = 0;
+        int result2 = 0;
+        while (getString.hasNextLine()) {
+            name = getString.nextLine();
+            credit = getString.nextLine();
+            kind = getString.nextLine();
+            grade = getString.nextLine();
+            courseCounter = getString.nextLine();
+            classCounter = getString.nextLine();
+            String t1;
+            String t2;
+            for (int i = 0; i < Integer.parseInt(classCounter); i++) {
+                t1 = getString.nextLine();
+                t2 = getString.nextLine();
+            }
+
+            if (name.equals(studentName)) {
+                return Float.parseFloat(grade);
+            }
+        }
+        fileReader.close();
+        getString.close();
+        return -1;
+    }
+
+    /**
+     * get credit of student
+     * @param studentName name of student
+     * @return credit
+     * @throws IOException when cant read file
+     */
+    public int getCredit(String studentName) throws IOException {
+        FileReader fileReader = new FileReader("students.txt");
+        Scanner getString = new Scanner(fileReader);
+        String name;
+        String credit;
+        String kind;
+        String grade;
+        String courseCounter;
+        String classCounter;
+        String className;
+        int result = 0;
+        int result2 = 0;
+        while (getString.hasNextLine()) {
+            name = getString.nextLine();
+            credit = getString.nextLine();
+            kind = getString.nextLine();
+            grade = getString.nextLine();
+            courseCounter = getString.nextLine();
+            classCounter = getString.nextLine();
+            String t1;
+            String t2;
+            for (int i = 0; i < Integer.parseInt(classCounter); i++) {
+                t1 = getString.nextLine();
+                t2 = getString.nextLine();
+            }
+
+            if (name.equals(studentName)) {
+                return Integer.parseInt(credit);
+            }
+        }
+        fileReader.close();
+        getString.close();
+        return -1;
+    }
+
+    /**
+     * get class counter of student
+     * @param studentName name of student
+     * @return counter
+     * @throws IOException when cant read file
+     */
+    public int getClassCounter(String studentName) throws IOException {
+        FileReader fileReader = new FileReader("students.txt");
+        Scanner getString = new Scanner(fileReader);
+        String name;
+        String credit;
+        String kind;
+        String grade;
+        String courseCounter;
+        String classCounter;
+        String className;
+        int result = 0;
+        int result2 = 0;
+        while (getString.hasNextLine()) {
+            name = getString.nextLine();
+            credit = getString.nextLine();
+            kind = getString.nextLine();
+            grade = getString.nextLine();
+            courseCounter = getString.nextLine();
+            classCounter = getString.nextLine();
+            String t1;
+            String t2;
+            for (int i = 0; i < Integer.parseInt(classCounter); i++) {
+                t1 = getString.nextLine();
+                t2 = getString.nextLine();
+            }
+
+            if (name.equals(studentName)) {
+                return Integer.parseInt(classCounter);
+            }
+        }
+        fileReader.close();
+        getString.close();
+        return -1;
+    }
+
+    /**
+     * get kind of student
+     * @param studentName name of student
+     * @return kind of student
+     * @throws IOException when cant read file
+     */
+    public int getKind(String studentName) throws IOException {
+        FileReader fileReader = new FileReader("students.txt");
+        Scanner getString = new Scanner(fileReader);
+        String name;
+        String credit;
+        String kind;
+        String grade;
+        String courseCounter;
+        String classCounter;
+        String className;
+        int result = 0;
+        int result2 = 0;
+        while (getString.hasNextLine()) {
+            name = getString.nextLine();
+            credit = getString.nextLine();
+            kind = getString.nextLine();
+            grade = getString.nextLine();
+            courseCounter = getString.nextLine();
+            classCounter = getString.nextLine();
+            String t1;
+            String t2;
+            for (int i = 0; i < Integer.parseInt(classCounter); i++) {
+                t1 = getString.nextLine();
+                t2 = getString.nextLine();
+            }
+
+            if (name.equals(studentName)) {
+               return Integer.parseInt(kind);
+            }
+        }
+        fileReader.close();
+        getString.close();
+        return -1;
+    }
+
 
 }
