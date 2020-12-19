@@ -12,6 +12,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -209,7 +210,7 @@ public class Admin_Home_GUI {
         addProfessor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Add_Professor p = new Add_Professor();
+                Add_Professor p = new Add_Professor(name,d);
                 Home.hide();
             }
         });
@@ -225,8 +226,11 @@ public class Admin_Home_GUI {
         studentsList.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ShowStudents p = new ShowStudents();
-                Home.hide();
+                try {
+                    ShowStudents p = new ShowStudents();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }
         });
         //--
@@ -241,8 +245,11 @@ public class Admin_Home_GUI {
         professorsList.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ShowProfessors p = new ShowProfessors();
-                Home.hide();
+                try {
+                    ShowProfessors p = new ShowProfessors();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }
         });
         //--
@@ -257,8 +264,11 @@ public class Admin_Home_GUI {
         classesList.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ShowClasses_Admin p = new ShowClasses_Admin();
-                Home.hide();
+                try {
+                    ShowClasses_Admin p = new ShowClasses_Admin();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }
         });
 

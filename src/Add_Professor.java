@@ -10,12 +10,18 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.time.LocalTime;
 
 public class Add_Professor {
     private JFrame addFrame;
     private JTextField username;
     private JTextField password;
     private JButton add;
+    private String name;
+    private LocalTime l;
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -26,8 +32,10 @@ public class Add_Professor {
     /**
      * create add professor frame
      */
-    public Add_Professor() {
+    public Add_Professor(String name , LocalTime l) {
         addFrame = new JFrame("اضافه کردن استاد به سیستم");
+        this.name=name;
+        this.l=l;
         addFrame.setSize(400, 300);
         addFrame.setLocationRelativeTo(null);
         addFrame.setLayout(null);
@@ -72,6 +80,20 @@ public class Add_Professor {
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setBounds(add.getX(),add.getY(), 180, 30);
         add.setBorder(new RoundedBorder(30));
+        add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Admin p = new Admin();
+                try {
+                    p.addProfessor(username.getText(), password.getText());
+                    addFrame.hide();
+                    Admin_Home_GUI q = new Admin_Home_GUI(name,l);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+            }
+        });
         addFrame.add(add);
     }
 

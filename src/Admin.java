@@ -28,12 +28,19 @@ public class Admin {
     }
 
     /**
-     * add schedule to portal
-     *
-     * @param s food schedule
-     * @throws IOException cant write file
+     * @param s0 food name
+     * @param p0 price
+     * @param s1 food name
+     * @param p1 price
+     * @param s2 food name
+     * @param p2 price
+     * @param s3 food name
+     * @param p3 price
+     * @param s4 food name
+     * @param p4 price
+     * @throws IOException
      */
-    public void addFoodSchedule(FoodSchedule s) throws IOException {
+    public void addFoodSchedule(String s0,int p0 , String s1,int p1,String s2,int p2 , String s3,int p3 , String s4,int p4) throws IOException {
         try {
             FileWriter fww = new FileWriter(schedule, false);
 
@@ -42,9 +49,12 @@ public class Admin {
 
             FileWriter fw = new FileWriter(schedule, true);
 
-            for (int i = 0; i < 5; i++) {
-                fw.write(s.getFood(i).getName() + "\n" + s.getFood(i).getPrice() + '\n');
-            }
+            fw.write(s0 + "\n" + p0 + '\n');
+            fw.write(s1 + "\n" + p1 + '\n');
+            fw.write(s2 + "\n" + p2 + '\n');
+            fw.write(s3 + "\n" + p3 + '\n');
+            fw.write(s4 + "\n" + p4 + '\n');
+
 
             fw.close();
 

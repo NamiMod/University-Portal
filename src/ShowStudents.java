@@ -8,6 +8,7 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileNotFoundException;
 
 public class ShowStudents {
     private JFrame show;
@@ -22,7 +23,7 @@ public class ShowStudents {
     /**
      * creat new window to show list of students
      */
-    public ShowStudents(){
+    public ShowStudents() throws FileNotFoundException {
         show = new JFrame("لیست دانشجویان");
         show.setSize(400, 400);
         show.setLocationRelativeTo(null);
@@ -37,12 +38,14 @@ public class ShowStudents {
     /**
      * add list elements
      */
-    public void show_element(){
+    public void show_element() throws FileNotFoundException {
+        Admin p = new Admin();
         list = new JTextArea();
         list.setLocation(10,10);
         list.setSize(380,350);
         list.setEditable(false);
         list.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, lightBlue_1));
+        list.setText(p.seeListOfStudents());
         show.add(list);
     }
 

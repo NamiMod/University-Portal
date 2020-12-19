@@ -12,6 +12,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.time.LocalTime;
 
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -206,7 +207,11 @@ public class Professor_Home_GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Home.hide();
-                ShowClasses_Admin p = new ShowClasses_Admin();
+                try {
+                    ShowClasses_Admin p = new ShowClasses_Admin();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }
         });
         //--

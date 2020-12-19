@@ -7,3 +7,9 @@ student
 vala
 1234
 professor
+nami
+1234
+student
+vala
+salam
+professor

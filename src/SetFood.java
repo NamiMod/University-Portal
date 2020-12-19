@@ -229,23 +229,10 @@ public class SetFood {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                food.hide();
                 Admin_Home_GUI p = new Admin_Home_GUI(name,l);
-                Food[] f = new Food[5];
-                f[0].setName(shanbe_f.getText());
-                f[0].setPrice(Integer.parseInt(shanbe_p.getText()));
-                f[1].setName(yekshanbe_f.getText());
-                f[1].setPrice(Integer.parseInt(yekshanbe_p.getText()));
-                f[2].setName(doshanbe_f.getText());
-                f[2].setPrice(Integer.parseInt(doshanbe_p.getText()));
-                f[3].setName(seshanbe_f.getText());
-                f[3].setPrice(Integer.parseInt(seshanbe_p.getText()));
-                f[4].setName(chaharshanbe_f.getText());
-                f[4].setPrice(Integer.parseInt(chaharshanbe_p.getText()));
-                FoodSchedule n = new FoodSchedule();
-                n.setSchedule(f);
                 Admin a = new Admin();
-                a.addFoodSchedule(n);
+                a.addFoodSchedule(shanbe_f.getText(),Integer.parseInt(shanbe_p.getText()),yekshanbe_f.getText(),Integer.parseInt(yekshanbe_p.getText()),doshanbe_f.getText(),Integer.parseInt(doshanbe_p.getText()),seshanbe_f.getText(),Integer.parseInt(seshanbe_p.getText()),chaharshanbe_f.getText(),Integer.parseInt(chaharshanbe_p.getText()));
+                    food.hide();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
