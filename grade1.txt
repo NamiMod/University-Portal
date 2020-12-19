@@ -1,0 +1,21 @@
+nami modarressi
+13
+1
+19.1
+19
+3
+class1
+mr1
+class2
+mr2
+class3
+mr3
+class jadid
+vala modarressi
+26
+0
+18
+19
+1
+class9
+mr9

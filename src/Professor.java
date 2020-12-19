@@ -171,6 +171,7 @@ public class Professor {
 
     /**
      * see list of students for Professor
+     *
      * @param professorName professor name
      * @return list as String
      * @throws FileNotFoundException cant read file
@@ -205,18 +206,17 @@ public class Professor {
                     t1 = getString.nextLine();
                     t2 = getString.nextLine();
                     if (t2.equals(professorName)) {
-                        result = result + t1 +" : "+ name + '\n';
+                        result = result + t1 + '\n' + name + '\n';
                     }
                 }
             }
             fileReader.close();
             getString.close();
             return result;
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Cant read!");
             return null;
         }
     }
-
 
 }
