@@ -10,6 +10,12 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class Change_User_Pass {
     private JFrame changeFrame;
@@ -97,6 +103,25 @@ public class Change_User_Pass {
         change.setFont(new Font("Arial", Font.PLAIN, 20));
         change.setBounds(change.getX(),change.getY(), 180, 30);
         change.setBorder(new RoundedBorder(30));
+        change.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Manager m = new Manager();
+                    boolean flag;
+                    flag = m.change(oldUsername.getText(),oldPassword.getText(),newUsername.getText(), newPassword.getText());
+                    if (!flag){
+                        showMessageDialog(null, "با دقت وارد نمایید !");
+                    }
+                    if (flag == true){
+                        changeFrame.hide();
+                        Login_GUI p = new Login_GUI();
+                    }
+                } catch (IOException fileNotFoundException) {
+                    System.out.println("Cant change !");
+                }
+            }
+        });
         changeFrame.add(change);
     }
 
