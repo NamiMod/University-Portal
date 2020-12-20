@@ -10,12 +10,18 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.time.LocalTime;
 
 public class CloseClass {
 
     private JFrame closeFrame;
     private JTextField name;
     private JButton close;
+    private String uname;
+    private LocalTime l;
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -26,7 +32,7 @@ public class CloseClass {
     /**
      * creat window to show contents
      */
-    public CloseClass() {
+    public CloseClass(String uname,LocalTime l) {
         closeFrame = new JFrame("حذف کلاس");
         closeFrame.setSize(400, 250);
         closeFrame.setLocationRelativeTo(null);
@@ -35,6 +41,8 @@ public class CloseClass {
         closeFrame.getContentPane().setBackground(Color.white);
         closeFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         Close_element();
+        this.uname=uname;
+        this.l=l;
         showClose();
     }
 
@@ -63,6 +71,19 @@ public class CloseClass {
         close.setFont(new Font("Arial", Font.PLAIN, 20));
         close.setBounds(close.getX(),close.getY(), 180, 30);
         close.setBorder(new RoundedBorder(30));
+        close.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Professor p = new Professor();
+                try {
+                    p.closeClass(name.getText());
+                    Professor_Home_GUI q = new Professor_Home_GUI(uname,l);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+            }
+        });
         closeFrame.add(close);
     }
 

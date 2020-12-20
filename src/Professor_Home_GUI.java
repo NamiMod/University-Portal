@@ -210,9 +210,8 @@ public class Professor_Home_GUI {
         seeClasses.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Home.hide();
                 try {
-                    ShowClasses_Admin p = new ShowClasses_Admin();
+                    ShowClasses_Professor p = new ShowClasses_Professor(name,l);
                 } catch (FileNotFoundException fileNotFoundException) {
                     fileNotFoundException.printStackTrace();
                 }
@@ -231,7 +230,7 @@ public class Professor_Home_GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Home.hide();
-                CloseClass p = new CloseClass();
+                CloseClass p = new CloseClass(name,l);
             }
         });
         Home.add(change);
