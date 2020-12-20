@@ -10,6 +10,10 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.time.LocalTime;
 
 public class GetClass_Student {
 
@@ -17,6 +21,8 @@ public class GetClass_Student {
     private JTextField name;
     private JTextField professorName;
     private JButton add;
+    private String uname;
+    private LocalTime l;
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -27,7 +33,9 @@ public class GetClass_Student {
     /**
      * creat window to show contents
      */
-    public GetClass_Student() {
+    public GetClass_Student(String uname , LocalTime l) {
+        this.uname=uname;
+        this.l=l;
         getClassFrame = new JFrame("اخذ درس");
         getClassFrame.setSize(400, 250);
         getClassFrame.setLocationRelativeTo(null);
@@ -75,6 +83,20 @@ public class GetClass_Student {
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setBounds(add.getX(),add.getY(), 180, 30);
         add.setBorder(new RoundedBorder(30));
+        add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getClassFrame.hide();
+                Student p = new Student();
+                try {
+                    p.addClass(uname,name.getText(), professorName.getText());
+                    getClassFrame.hide();
+                    Student_Home_GUI q = new Student_Home_GUI(uname,l);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
         getClassFrame.add(add);
     }
 

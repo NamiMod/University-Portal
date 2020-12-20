@@ -238,7 +238,7 @@ public class Student_Home_GUI {
         addClass.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GetClass_Student p = new GetClass_Student();
+                GetClass_Student p = new GetClass_Student(name,l);
             }
         });
         //--
