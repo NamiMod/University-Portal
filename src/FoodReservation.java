@@ -10,6 +10,10 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.time.LocalTime;
 
 public class FoodReservation {
 
@@ -30,6 +34,8 @@ public class FoodReservation {
     private JLabel p3;
     private JLabel p4;
     private JLabel p5;
+    private String name;
+    private LocalTime l;
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -40,7 +46,9 @@ public class FoodReservation {
     /**
      * creat window to reserve foods
      */
-    public FoodReservation() {
+    public FoodReservation(String name, LocalTime l) {
+        this.name=name;
+        this.l=l;
         food = new JFrame("رزرو غذا");
         food.setSize(400, 400);
         food.setLocationRelativeTo(null);
@@ -157,6 +165,35 @@ public class FoodReservation {
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setBounds(add.getX(),add.getY(), 180, 30);
         add.setBorder(new RoundedBorder(30));
+        add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                food.hide();
+                try {
+                    int x=0;
+                    Student p = new Student();
+                    if (shanbe_t.isSelected()){
+                        x=x+Integer.parseInt(p1.getText());
+                    }
+                    if (yekshanbe_t.isSelected()){
+                        x=x+Integer.parseInt(p2.getText());
+                    }
+                    if (doshanbe_t.isSelected()){
+                        x=x+Integer.parseInt(p3.getText());
+                    }
+                    if (seshanbe_t.isSelected()){
+                        x=x+Integer.parseInt(p4.getText());
+                    }
+                    if (chaharshanbe_t.isSelected()){
+                        x=x+Integer.parseInt(p5.getText());
+                    }
+                    p.foodReserve(name,x);
+                    Student_Home_GUI s = new Student_Home_GUI(name,l);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
         food.add(add);
 
     }

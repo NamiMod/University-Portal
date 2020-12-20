@@ -12,6 +12,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Date;
@@ -206,7 +207,7 @@ public class Student_Home_GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Home.hide();
-                FoodReservation p = new FoodReservation();
+                FoodReservation p = new FoodReservation(name , l);
             }
         });
         //--
@@ -222,7 +223,7 @@ public class Student_Home_GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Home.hide();
-                AddCredit p = new AddCredit();
+                AddCredit p = new AddCredit(name , l);
             }
         });
         //--
@@ -237,7 +238,6 @@ public class Student_Home_GUI {
         addClass.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Home.hide();
                 GetClass_Student p = new GetClass_Student();
             }
         });
@@ -253,8 +253,11 @@ public class Student_Home_GUI {
         seeClass.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Home.hide();
-                ShowClasses_Student p = new ShowClasses_Student();
+                try {
+                    ShowClasses_Student p = new ShowClasses_Student(name);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }
         });
 

@@ -10,6 +10,11 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.time.LocalTime;
 
 public class AddCredit {
     private JFrame changeFrame;
@@ -20,6 +25,8 @@ public class AddCredit {
     private JTextField password;
     private JTextField value;
     private JButton add;
+    private String name;
+    private LocalTime l;
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -30,7 +37,9 @@ public class AddCredit {
     /**
      * create adding credit frame
      */
-    public AddCredit() {
+    public AddCredit(String name , LocalTime l) {
+        this.name=name;
+        this.l=l;
         changeFrame = new JFrame("افزایش اعتبار");
         changeFrame.setSize(400, 360);
         changeFrame.setLocationRelativeTo(null);
@@ -123,6 +132,19 @@ public class AddCredit {
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setBounds(add.getX(),add.getY(), 180, 30);
         add.setBorder(new RoundedBorder(30));
+        add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeFrame.hide();
+                try {
+                    Student q = new Student();
+                    q.addCredit(name,Integer.parseInt(value.getText()));
+                    Student_Home_GUI p = new Student_Home_GUI(name,l);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
         changeFrame.add(add);
 
     }

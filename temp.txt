@@ -1,9 +1,9 @@
-salam
-khobi
 admin
-nami
-1234
+admin
+admin
+mani
+mani
 student
 vala
-1234
-professor
+vala
+student

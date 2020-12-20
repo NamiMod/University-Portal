@@ -8,11 +8,13 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileNotFoundException;
 
 public class ShowClasses_Student {
     private JFrame show;
     private JTextArea list;
     private JLabel title;
+    private String name;
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -23,7 +25,8 @@ public class ShowClasses_Student {
     /**
      * creat new window to show list of classes
      */
-    public ShowClasses_Student(){
+    public ShowClasses_Student(String name) throws FileNotFoundException {
+        this.name=name;
         show = new JFrame("لیست کلاس ها");
         show.setSize(400, 400);
         show.setLocationRelativeTo(null);
@@ -38,7 +41,7 @@ public class ShowClasses_Student {
     /**
      * add list elements
      */
-    public void show_element(){
+    public void show_element() throws FileNotFoundException {
 
         title = new JLabel("کلاس های شما در این ترم");
         title.setLocation(125,0);
@@ -47,10 +50,12 @@ public class ShowClasses_Student {
         title.setForeground(text);
         show.add(title);
 
+        Student p = new Student();
         list = new JTextArea();
         list.setLocation(10,50);
         list.setSize(380,300);
         list.setEditable(false);
+        list.setText(p.listOfClasses(name));
         list.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, lightBlue_1));
         show.add(list);
     }
