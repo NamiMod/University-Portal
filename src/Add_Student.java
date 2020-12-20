@@ -15,6 +15,8 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.time.LocalTime;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class Add_Student {
     private JFrame addFrame;
     private JTextField username;
@@ -92,18 +94,22 @@ public class Add_Student {
             public void actionPerformed(ActionEvent e) {
                 Admin p = new Admin();
                 char c;
-                if (kind.isSelected()){
+                if (kind.isSelected()) {
                     c = '1';
-                }else {
+                } else {
                     c = '0';
                 }
-                try {
-                    p.addStudent(username.getText(), password.getText(),c);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
+                if (password.getText().length() > 8) {
+                    try {
+                        p.addStudent(username.getText(), password.getText(), c);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    addFrame.hide();
+                    Admin_Home_GUI q = new Admin_Home_GUI(name, l);
+                }else {
+                    showMessageDialog(null, "رمز عبور باید بیشتر از ۸ کاراکتر باشد !");
                 }
-                addFrame.hide();
-                Admin_Home_GUI q = new Admin_Home_GUI(name,l);
             }
 
         });

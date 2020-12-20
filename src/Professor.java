@@ -79,56 +79,9 @@ public class Professor {
     public boolean closeClass(String name) throws IOException {
 
         try {
-            FileReader fr = new FileReader("classes_name.txt");
-
-            Scanner getString = new Scanner(fr);
             FileWriter fww = new FileWriter("temp.txt", false);
             fww.write("");
             fww.close();
-            FileWriter fw = new FileWriter("temp.txt", true);
-
-            boolean flag = false;
-            Scanner s = new Scanner(fr);
-            String temp;
-
-            while (s.hasNextLine()) {
-                temp = s.nextLine();
-                if (temp.equals(name)) {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag) {
-                return false;
-            } else {
-                String p;
-                while (getString.hasNextLine()) {
-
-                    p = getString.nextLine();
-
-                    if (!p.equals(name)) {
-                        fw.write(p + '\n');
-                    }
-                }
-                fr.close();
-                fw.close();
-                getString.close();
-
-                FileWriter copy = new FileWriter("classes_name.txt", false);
-                FileReader fileReader2 = new FileReader("temp.txt");
-                Scanner getString2 = new Scanner(fileReader2);
-
-                while (getString2.hasNextLine()) {
-                    copy.write(getString2.nextLine() + '\n');
-                }
-                copy.close();
-                fileReader2.close();
-                getString2.close();
-
-                FileWriter fwww = new FileWriter("temp.txt", false);
-                fww.write("");
-                fww.close();
-
                 FileReader fr3 = new FileReader("classes.txt");
                 Scanner getString3 = new Scanner(fr3);
                 FileWriter fw3 = new FileWriter("temp.txt", true);
@@ -140,7 +93,7 @@ public class Professor {
                     for (int i = 0; i < 19; i++) {
                         u[i] = getString3.nextLine();
                     }
-                    if (!u[0].equals(name)) {
+                    if (!(u[0].equals(name))) {
                         for (int i = 0; i < 19; i++) {
                             fw3.write(u[i] + '\n');
                         }
@@ -156,13 +109,12 @@ public class Professor {
                 while (getString4.hasNextLine()) {
                     copy2.write(getString4.nextLine() + '\n');
                 }
-                copy.close();
-                fileReader2.close();
-                getString2.close();
+                copy2.close();
+                fileReader4.close();
+                getString4.close();
 
                 return true;
 
-            }
         } catch (IOException e) {
             System.out.println("Cant write !");
             return false;

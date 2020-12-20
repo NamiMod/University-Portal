@@ -77,6 +77,7 @@ public class CloseClass {
                 Professor p = new Professor();
                 try {
                     p.closeClass(name.getText());
+                    closeFrame.hide();
                     Professor_Home_GUI q = new Professor_Home_GUI(uname,l);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
