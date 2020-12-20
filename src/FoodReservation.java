@@ -12,8 +12,11 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalTime;
+import java.util.Scanner;
 
 public class FoodReservation {
 
@@ -46,7 +49,7 @@ public class FoodReservation {
     /**
      * creat window to reserve foods
      */
-    public FoodReservation(String name, LocalTime l) {
+    public FoodReservation(String name, LocalTime l) throws FileNotFoundException {
         this.name=name;
         this.l=l;
         food = new JFrame("رزرو غذا");
@@ -63,9 +66,12 @@ public class FoodReservation {
     /**
      * add elements to window in order to reserve food
      */
-    public void food_element() {
+    public void food_element() throws FileNotFoundException {
 
         Border textBlue = new BevelBorder(BevelBorder.LOWERED, outBlue,background);
+        FileReader fr = new FileReader("food_schedule.txt");
+        Scanner s = new Scanner(fr);
+
 
         shanbe = new JLabel("شنبه");
         shanbe.setLocation(40,0);
@@ -74,12 +80,14 @@ public class FoodReservation {
         shanbe.setForeground(text);
         food.add(shanbe);
 
-        shanbe_t = new JCheckBox("food 1");
+        shanbe_t = new JCheckBox();
+        shanbe_t.setText(s.nextLine());
         shanbe_t.setLocation(160,0);
         shanbe_t.setSize(100,50);
         food.add(shanbe_t);
 
-        p1 = new JLabel("10,000 T");
+        p1 = new JLabel();
+        p1.setText(s.nextLine());
         p1.setLocation(300,0);
         p1.setSize(100,50);
         p1.setForeground(lightBlue_1);
@@ -93,12 +101,14 @@ public class FoodReservation {
         yekshanbe.setForeground(text);
         food.add(yekshanbe);
 
-        yekshanbe_t = new JCheckBox("food 2");
+        yekshanbe_t = new JCheckBox();
+        yekshanbe_t.setText(s.nextLine());
         yekshanbe_t.setLocation(160,50);
         yekshanbe_t.setSize(100,50);
         food.add(yekshanbe_t);
 
-        p2 = new JLabel("15,000 T");
+        p2 = new JLabel();
+        p2.setText(s.nextLine());
         p2.setLocation(300,50);
         p2.setSize(100,50);
         p2.setForeground(lightBlue_1);
@@ -111,12 +121,14 @@ public class FoodReservation {
         doshanbe.setForeground(text);
         food.add(doshanbe);
 
-        doshanbe_t = new JCheckBox("food 3");
+        doshanbe_t = new JCheckBox();
+        doshanbe_t.setText(s.nextLine());
         doshanbe_t.setLocation(160,100);
         doshanbe_t.setSize(100,50);
         food.add(doshanbe_t);
 
-        p3 = new JLabel("7,000 T");
+        p3 = new JLabel();
+        p3.setText(s.nextLine());
         p3.setLocation(300,100);
         p3.setSize(100,50);
         p3.setForeground(lightBlue_1);
@@ -129,12 +141,14 @@ public class FoodReservation {
         seshanbe.setForeground(text);
         food.add(seshanbe);
 
-        seshanbe_t = new JCheckBox("food 4");
+        seshanbe_t = new JCheckBox();
+        seshanbe_t.setText(s.nextLine());
         seshanbe_t.setLocation(160,150);
         seshanbe_t.setSize(100,50);
         food.add(seshanbe_t);
 
-        p4 = new JLabel("9,500 T");
+        p4 = new JLabel();
+        p4.setText(s.nextLine());
         p4.setLocation(300,150);
         p4.setSize(100,50);
         p4.setForeground(lightBlue_1);
@@ -147,12 +161,14 @@ public class FoodReservation {
         chaharshanbe.setForeground(text);
         food.add(chaharshanbe);
 
-        chaharshanbe_t = new JCheckBox("food 5");
+        chaharshanbe_t = new JCheckBox();
+        chaharshanbe_t.setText(s.nextLine());
         chaharshanbe_t.setLocation(160,200);
         chaharshanbe_t.setSize(100,50);
         food.add(chaharshanbe_t);
 
-        p5 = new JLabel("12,500 T");
+        p5 = new JLabel();
+        p5.setText(s.nextLine());
         p5.setLocation(300,200);
         p5.setSize(100,50);
         p5.setForeground(lightBlue_1);

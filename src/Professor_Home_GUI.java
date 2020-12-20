@@ -183,7 +183,7 @@ public class Professor_Home_GUI {
         setGrade.setLocation(480,340);
         setGrade.setSize(200,20);
         setGrade.setForeground(text);
-        seeClasses.setToolTipText("مشاهده لیست دانشجویان و ثبت نمرات");
+        setGrade.setToolTipText("مشاهده لیست دانشجویان و ثبت نمرات");
         setGrade.setFont(new Font("Arial", Font.PLAIN, 18));
         setGrade.setBounds(setGrade.getX(),setGrade.getY(), 180, 30);
         setGrade.setBorder(new RoundedBorder(30));

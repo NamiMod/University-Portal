@@ -207,7 +207,11 @@ public class Student_Home_GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Home.hide();
-                FoodReservation p = new FoodReservation(name , l);
+                try {
+                    FoodReservation p = new FoodReservation(name , l);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }
         });
         //--

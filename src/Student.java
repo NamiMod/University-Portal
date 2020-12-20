@@ -315,7 +315,7 @@ public class Student {
                 }
 
                 if (name.equals(studentName)) {
-                    result = 1 + Integer.parseInt(credit);
+                    result = 1 + Integer.parseInt(classCounter);
                     result2 = Integer.parseInt(courseCounter) + getCounter(name);
                     break;
                 }
@@ -336,11 +336,7 @@ public class Student {
                 name = getString2.nextLine();
                 fw.write(name + '\n');
                 credit = getString2.nextLine();
-                if (name.equals(studentName)) {
-                    fw.write("" + result + '\n');
-                } else {
-                    fw.write(credit + '\n');
-                }
+                fw.write(credit + '\n');
                 kind = getString2.nextLine();
                 fw.write(kind + '\n');
                 grade = getString2.nextLine();
@@ -352,7 +348,11 @@ public class Student {
                     fw.write(courseCounter + '\n');
                 }
                 classCounter = getString2.nextLine();
-                fw.write("" + classCounter + '\n');
+                if (name.equals(studentName)) {
+                    fw.write("" + result + '\n');
+                } else {
+                    fw.write(classCounter + '\n');
+                }
                 String t1;
                 String t2;
                 for (int i = 0; i < Integer.parseInt(classCounter); i++) {
@@ -719,7 +719,11 @@ public class Student {
             }
 
             if (name.equals(studentName)) {
-               return Integer.parseInt(kind);
+                if (Float.parseFloat(grade) >= 17){
+                    return 1;
+                }else {
+                    return Integer.parseInt(kind);
+                }
             }
         }
         fileReader.close();

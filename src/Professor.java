@@ -56,8 +56,8 @@ public class Professor {
             fw2.write(counter + '\n');
             fw2.write(capacity + '\n');
             fw2.write(professorName + '\n');
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 5; j++) {
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 3; j++) {
                     fw2.write("" + time[i][j] + '\n');
                 }
             }

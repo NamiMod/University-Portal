@@ -1,9 +1,9 @@
 admin
 admin
 admin
-mani
-mani
-student
-vala
-vala
+mr1
+1
+professor
+nami
+2
 student
