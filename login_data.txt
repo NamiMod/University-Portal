@@ -1,9 +1,3 @@
 admin
 admin
 admin
-mr1
-1
-professor
-nami
-2
-student

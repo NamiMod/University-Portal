@@ -1,8 +1,15 @@
+/**
+ * --University portal--
+ * this is simple program for university portal
+ * @author Seyed Nami Modarressi
+ * @since 2020
+ * @version 1.9
+ */
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
 
-        Login_GUI start = new Login_GUI();
+        Splash s = new Splash();
 
     }
 }

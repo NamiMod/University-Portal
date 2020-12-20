@@ -303,7 +303,62 @@ public class Student {
         s.close();
         return -1;
     }
-    public void capacityDown(String name , String proName){
+    public void capacityDown(String name , String proName) throws IOException {
+        FileReader fr = new FileReader("classes.txt");
+        FileWriter fw = new FileWriter("temp.txt",false);
+        fw.write("");
+        fw.close();
+        FileWriter fw2 = new FileWriter("temp.txt",true);
+
+        Scanner s = new Scanner(fr);
+        String[] u = new String[19];
+
+        while (s.hasNextLine()){
+            for(int i = 0 ; i < 19 ; i++){
+                u[i] = s.nextLine();
+            }
+            if (u[0].equals(name) && u[3].equals(proName)){
+                fw2.write(u[0]+'\n');
+                fw2.write(u[1]+'\n');
+                fw2.write(""+(Integer.parseInt(u[2])-1)+'\n');
+                fw2.write(u[3]+'\n');
+                fw2.write(u[4]+'\n');
+                fw2.write(u[5]+'\n');
+                fw2.write(u[6]+'\n');
+                fw2.write(u[7]+'\n');
+                fw2.write(u[8]+'\n');
+                fw2.write(u[9]+'\n');
+                fw2.write(u[10]+'\n');
+                fw2.write(u[11]+'\n');
+                fw2.write(u[12]+'\n');
+                fw2.write(u[13]+'\n');
+                fw2.write(u[14]+'\n');
+                fw2.write(u[15]+'\n');
+                fw2.write(u[16]+'\n');
+                fw2.write(u[17]+'\n');
+                fw2.write(u[18]+'\n');
+            }else {
+                for(int i = 0 ; i < 19 ; i++){
+                    fw2.write(u[i]+'\n');
+                }
+            }
+        }
+        fr.close();
+        s.close();
+        fw2.close();
+
+        FileWriter copy = new FileWriter("classes.txt", false);
+        FileReader fileReader3 = new FileReader("temp.txt");
+        Scanner getString3 = new Scanner(fileReader3);
+
+        while (getString3.hasNextLine()) {
+            copy.write(getString3.nextLine() + '\n');
+        }
+
+        copy.close();
+        fileReader3.close();
+        getString3.close();
+
     }
 
     /**
