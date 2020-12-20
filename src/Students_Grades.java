@@ -8,6 +8,11 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.LocalTime;
 
 public class Students_Grades {
     private JFrame show;
@@ -16,6 +21,8 @@ public class Students_Grades {
     private JButton add;
     private JLabel stu;
     private JLabel gra;
+    private String name;
+    private LocalTime l;
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -26,7 +33,9 @@ public class Students_Grades {
     /**
      * creat new window to show list of students
      */
-    public Students_Grades(){
+    public Students_Grades(String name , LocalTime l) throws FileNotFoundException {
+        this.name=name;
+        this.l=l;
         show = new JFrame("لیست دانشجویان و نمرات");
         show.setSize(510, 500);
         show.setLocationRelativeTo(null);
@@ -41,7 +50,9 @@ public class Students_Grades {
     /**
      * add list elements
      */
-    public void show_element(){
+    public void show_element() throws FileNotFoundException {
+
+        Professor q = new Professor();
 
         stu = new JLabel("دانشجویان");
         stu.setLocation(170,0);
@@ -62,6 +73,7 @@ public class Students_Grades {
         list.setLocation(10,50);
         list.setSize(380,350);
         list.setEditable(false);
+        list.setText(q.getStudents(name));
         list.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, lightBlue_1));
         show.add(list);
 
@@ -80,6 +92,19 @@ public class Students_Grades {
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setBounds(add.getX(),add.getY(), 180, 30);
         add.setBorder(new RoundedBorder(30));
+        add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                show.hide();
+                Professor_Home_GUI p = new Professor_Home_GUI(name,l);
+                Student m = new Student();
+                try {
+                    m.setGrades(list.getText(),grades.getText());
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
         show.add(add);
     }
 

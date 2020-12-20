@@ -191,7 +191,11 @@ public class Professor_Home_GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Home.hide();
-                Students_Grades p = new Students_Grades();
+                try {
+                    Students_Grades p = new Students_Grades(name,l);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }
         });
         //--
