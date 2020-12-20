@@ -175,7 +175,7 @@ public class Professor_Home_GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Home.hide();
-                Add_Class p = new Add_Class();
+                Add_Class p = new Add_Class(name,l);
             }
         });
         //--

@@ -10,6 +10,11 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.time.LocalTime;
+import java.util.Locale;
 
 public class Add_Class {
 
@@ -39,6 +44,9 @@ public class Add_Class {
     private JCheckBox time53;
 
     private JButton add;
+    private String uname;
+    private LocalTime l;
+
 
     Color outBlue = new Color(0, 128, 255);
     Color text = new Color(43, 62, 100);
@@ -49,7 +57,9 @@ public class Add_Class {
     /**
      * creat window to show contents
      */
-    public Add_Class() {
+    public Add_Class(String uname , LocalTime l) {
+        this.uname=uname;
+        this.l=l;
         addClass = new JFrame("اضافه کردن کلاس");
         addClass.setSize(400, 600);
         addClass.setLocationRelativeTo(null);
@@ -188,6 +198,66 @@ public class Add_Class {
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setBounds(add.getX(),add.getY(), 180, 30);
         add.setBorder(new RoundedBorder(30));
+        add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addClass.hide();
+                Professor q = new Professor();
+                int[][] time = new int[5][3];
+
+                if (time11.isSelected()){
+                    time[0][0]=1;
+                }
+                if (time12.isSelected()){
+                    time[0][1]=1;
+                }
+                if (time13.isSelected()){
+                    time[0][2]=1;
+                }
+                if (time21.isSelected()){
+                    time[1][0]=1;
+                }
+                if (time22.isSelected()){
+                    time[1][1]=1;
+                }
+                if (time23.isSelected()){
+                    time[1][2]=1;
+                }
+                if (time31.isSelected()){
+                    time[2][0]=1;
+                }
+                if (time32.isSelected()){
+                    time[2][1]=1;
+                }
+                if (time33.isSelected()){
+                    time[2][2]=1;
+                }
+                if (time41.isSelected()){
+                    time[3][0]=1;
+                }
+                if (time42.isSelected()){
+                    time[3][1]=1;
+                }
+                if (time43.isSelected()){
+                    time[3][2]=1;
+                }
+                if (time51.isSelected()){
+                    time[4][0]=1;
+                }
+                if (time52.isSelected()){
+                    time[4][1]=1;
+                }
+                if (time53.isSelected()){
+                    time[4][2]=1;
+                }
+                try {
+                    q.addClass(name.getText(),counter.getText(),capacity.getText(),uname,time);
+                    Professor_Home_GUI p = new Professor_Home_GUI(uname,l);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
         addClass.add(add);
 
 
